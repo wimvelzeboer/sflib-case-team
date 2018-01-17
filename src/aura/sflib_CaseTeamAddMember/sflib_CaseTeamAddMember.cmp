@@ -1,5 +1,5 @@
 <aura:component description="sflib_CaseTeamAddMember"
-                implements="flexipage:availableForRecordHome, force:hasRecordId"
+                implements="force:hasRecordId"
                 controller="sflib_CaseTeamAddMemberController">
 
     <aura:attribute access="public" name="caseRecordId" type="Id"/>
