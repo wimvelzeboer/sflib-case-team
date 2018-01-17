@@ -21,5 +21,5 @@ After installation:
 - Login to Salesforce
 - Goto a detailpage of a case 
 - Under setup (The cog in the upper right corner), select 'Edit Page'
-- Select the component, from the custom components at the bottom in the left hand side
+- Select the component, from the custom components at the bottom in the left hand side, and drag it onto the page
 
