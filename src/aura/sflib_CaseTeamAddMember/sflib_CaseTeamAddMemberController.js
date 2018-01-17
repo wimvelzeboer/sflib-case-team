@@ -55,14 +55,14 @@
 
 
     /**
-     * onTaskChanged
+     * onMemberIdChanged
      *
-     * @description When the Task record (container for holding the userId) is changed, validate the form again
+     * @description When the Member Id is changed, validate the form again
      * @param component
      * @param event
      * @param helper
      */
-    onTaskChanged: function (component, event, helper) {
+    onMemberIdChanged: function (component, event, helper) {
         helper.validateForm(component);
     },
 

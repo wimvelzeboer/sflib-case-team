@@ -3,11 +3,12 @@
                 controller="sflib_CaseTeamAddMemberController">
 
     <aura:attribute access="public" name="caseRecordId" type="Id"/>
-    <aura:attribute access="private" name="taskRecord" type="Task" default="{ 'sobjectType': 'Task' }"/>
     <aura:attribute access="private" name="memberRoleId" type="String" default=""/>
+    <aura:attribute access="private" name="memberId" type="String" default=""/>
+
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    <aura:handler name="change" value="{!v.taskRecord}" action="{!c.onTaskChanged}"/>
+    <aura:handler name="change" value="{!v.memberId}" action="{!c.onMemberIdChanged}"/>
 
     <aura:registerEvent name="sflib_CaseTeamUpdated" type="c:sflib_CaseTeamUpdated"/>
 
@@ -27,11 +28,9 @@
                 <div class="slds-form slds-form_stacked">
                     <div class="slds-form-element">
                         <div class="slds-form-element">
-
                             <div class="slds-form-element__control">
-                                <label class="slds-form-element__label">Member</label>
-                                <force:inputField aura:id="inputMemberId" value="{!v.taskRecord.OwnerId}"
-                                                  required="true"/>
+                                <label class="slds-form-element__label">Member:</label>
+                                <c:sflib_InputLookup type="User" value="{!v.memberId}" filter="isActive=true AND Profile.UserLicense.Name = 'Salesforce'" />
                             </div>
                         </div>
                         <br/>

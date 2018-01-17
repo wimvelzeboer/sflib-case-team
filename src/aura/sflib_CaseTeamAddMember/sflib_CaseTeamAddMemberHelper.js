@@ -7,12 +7,10 @@
      * @param component
      */
     addMemberToCaseTeam: function (component) {
-        var taskRecord = component.get('v.taskRecord');
-        var roleId = component.get('v.memberRoleId');
         var action = component.get("c.addCaseTeamMember");
         action.setParams({
             caseId: component.get('v.caseRecordId'),
-            memberId: taskRecord.OwnerId,
+            memberId: component.get('v.memberId'),
             roleId: component.get('v.memberRoleId')
         });
 
@@ -110,9 +108,8 @@
         if (returnValue == 'SUCCESS') {
             this.showToast('success', 'SUCCESS', 'Member Added succesfully to the case team');
             this.fireEventCaseTeamUpdated(component);
-            component.set("v.taskRecord.OwnerId", "");
             component.set("v.memberRoleId", "");
-            component.find("inputMemberId").set("v.value", "");
+            component.set("v.memberId", "");
             component.find("InputMemberRole").set("v.value", "");
         }
         else if (returnValue == 'DUPLICATE_VALUE') {
@@ -195,10 +192,10 @@
      * @param component
      */
     validateForm: function (component) {
-        var taskRecord = component.get('v.taskRecord');
+        var userId = component.get('v.memberId');
         var roleId = component.get('v.memberRoleId');
         if (
-            (null != taskRecord.OwnerId && taskRecord.OwnerId != '') &&
+            (null != userId && userId != '') &&
             (null != roleId && roleId != '')) {
             this.enableOkButton(component);
         }

@@ -17,7 +17,10 @@ public with sharing class sflib_CaseTeamRelatedListController
 	{
 		List<CaseTeamMember> caseTeamMembers =
 				((sflib_CaseTeamMemberSelector) sflib_Application.Selector.newInstance(CaseTeamMember.SObjectType))
-						.selectByParentId(new Set<Id> {caseRecordId});
+						.selectByParentId(new Set<Id>
+				{
+						caseRecordId
+				});
 
 		List<CaseTeamDataResult> results = new List<CaseTeamDataResult>();
 		for (CaseTeamMember caseTeamMember : caseTeamMembers)
@@ -31,7 +34,12 @@ public with sharing class sflib_CaseTeamRelatedListController
 	@AuraEnabled
 	public static Boolean isUpdateable(Id caseRecordId)
 	{
-		return caseRecordId.getSobjectType().getDescribe().isUpdateable();
+		List<UserRecordAccess> access = [
+				SELECT RecordId, HasEditAccess
+				FROM UserRecordAccess
+				WHERE UserId = :UserInfo.getUserId() AND RecordId = :caseRecordId
+		];
+		return (!access.isEmpty() && access.get(0).HasEditAccess);
 	}
 
 	@AuraEnabled
@@ -76,5 +84,7 @@ public with sharing class sflib_CaseTeamRelatedListController
 	}
 
 
-	public class CaseTeamRelatedListControllerException extends Exception {}
+	public class CaseTeamRelatedListControllerException extends Exception
+	{
+	}
 }

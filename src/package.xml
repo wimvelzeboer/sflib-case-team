@@ -8,6 +8,9 @@
         <members>sflib_CaseTeamAddMember</members>
         <members>sflib_CaseTeamRelatedList</members>
         <members>sflib_CaseTeamUpdated</members>
+        <members>sflib_InputLookUp</members>
+        <members>sflib_InputLookUpEvent</members>
+        <members>sflib_InputLookUpResult</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <version>40.0</version>
