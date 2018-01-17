@@ -9,6 +9,8 @@ Must deploy [ApexMocks](https://github.com/wimvelzeboer/fflib-apex-mocks-plus) a
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png">
 </a>
 
+## Donate
+Please do not forget to donate something when you find this tool usefull. Thanks!
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=H4L2B682AHSKW">
     <img alt="Donate"
          src="donate.gif" />
