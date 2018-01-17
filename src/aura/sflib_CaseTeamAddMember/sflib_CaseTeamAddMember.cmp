@@ -1,0 +1,52 @@
+<aura:component description="sflib_CaseTeamAddMember"
+                implements="flexipage:availableForRecordHome, force:hasRecordId"
+                controller="sflib_CaseTeamAddMemberController">
+
+    <aura:attribute access="public" name="caseRecordId" type="Id"/>
+    <aura:attribute access="private" name="taskRecord" type="Task" default="{ 'sobjectType': 'Task' }"/>
+    <aura:attribute access="private" name="memberRoleId" type="String" default=""/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.taskRecord}" action="{!c.onTaskChanged}"/>
+
+    <aura:registerEvent name="sflib_CaseTeamUpdated" type="c:sflib_CaseTeamUpdated"/>
+
+    <ui:button class="slds-button slds-button_neutral" press="{!c.onClickAddMemberButton}">Add Member</ui:button>
+
+    <section aura:id="Modalbox" role="dialog" tabindex="-1" aria-modal="true" class="slds-modal">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick="{!c.closeModal}">
+                    <lightning:icon iconName="utility:close" alternativeText="Close"/>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 class="slds-text-heading_medium slds-hyphenate">Add Case Team Member</h2>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium">
+                <div class="slds-form slds-form_stacked">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element">
+
+                            <div class="slds-form-element__control">
+                                <label class="slds-form-element__label">Member</label>
+                                <force:inputField aura:id="inputMemberId" value="{!v.taskRecord.OwnerId}"
+                                                  required="true"/>
+                            </div>
+                        </div>
+                        <br/>
+                        <ui:inputSelect label="Member Role" class="dynamic" aura:id="InputMemberRole" required="true"
+                                        change="{!c.onMemberRoleChange}"/>
+                    </div>
+                </div>
+            </div>
+            <footer class="slds-modal__footer">
+                <ui:button class="slds-button slds-button_neutral" press="{!c.closeModal}">Cancel</ui:button>
+                <ui:button aura:id="okButton" class="slds-button slds-button_brand"
+                           press="{!c.onClickOkButton}" disabled="true">Add Member
+                </ui:button>
+            </footer>
+        </div>
+    </section>
+    <div aura:id="Modalbackdrop" class="slds-backdrop"></div>
+</aura:component>
