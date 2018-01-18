@@ -14,10 +14,10 @@
     You should have received a copy of the GNU General Public License
     along with sflib.  If not, see <http://www.gnu.org/licenses/>.
 
-    @author: architect William Velzeboer  wim@velzeboer.nl
-    @date: January 2018
-    @version: 1.0
+    @author: Enrico Murru (http://enree.co, @enreeco)
+    @updatedby: architect William Velzeboer  wim@velzeboer.nl, January 2018
 -->
-<aura:event type="COMPONENT" description="sflib_CaseTeamUpdated">
+<aura:event type="COMPONENT"
+            description="by this event we are pass the selected SObject in the parent component">
+    <aura:attribute name="sObjectByEvent" type="SObject"/>
 </aura:event>
-

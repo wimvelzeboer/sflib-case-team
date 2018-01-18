@@ -1,10 +1,26 @@
-/*
- * Author: Enrico Murru (http://enree.co, @enreeco)
+/**
+ *  This file is part of sflib.
+ *
+ *  sflib is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License,
+ *  or any later version.
+ *
+ *  sflib is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with sflib.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  @author: Enrico Murru (http://enree.co, @enreeco)
+ *  @updatedby: architect William Velzeboer  wim@velzeboer.nl, January 2018
  */
 public with sharing class sflib_InputLookUpController
 {
 	/*
-     * Searchs (using SOSL) for a given Sobject type
+     * Searches (using SOSL) for a given Sobject type
      */
 	@AuraEnabled
 	public static List<SObject> searchSObject(String type, String filter, String searchString)
