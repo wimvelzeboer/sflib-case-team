@@ -20,8 +20,6 @@
 -->
 
 <aura:component description="sflib_InputLookUp" controller="sflib_InputLookUpController">
-    <!---Use Salesforce Lightning Design System CSS From Static resources-->
-    <!--        <ltng:require styles="{!$Resource.SLDS24 + '/assets/styles/salesforce-lightning-design-system.css'}"/>-->
 
     <!--declare attributes-->
     <aura:attribute name="type" type="String" description="Sobject Type" required="true"/>
@@ -39,6 +37,7 @@
     <aura:handler name="oSelectedSObjectEvent" event="c:sflib_InputLookUpEvent" action="{!c.handleComponentEvent}"/>
     <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
     <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    <aura:handler name="change" value="{!v.value}" action="{!c.onValueChange}" />
 
     <!-- https://www.lightningdesignsystem.com/components/lookups/ -->
     <div aura:id="searchRes" class="slds-form-element slds-lookup slds-is-close" data-select="single">

@@ -48,4 +48,20 @@
         $A.enqueueAction(action);
 
     },
+
+    // function for clear the Record Selection
+    clear: function (component) {
+
+        var pillTarget = component.find("lookup-pill");
+        var lookUpTarget = component.find("lookupField");
+
+        $A.util.addClass(pillTarget, 'slds-hide');
+        $A.util.removeClass(pillTarget, 'slds-show');
+
+        $A.util.addClass(lookUpTarget, 'slds-show');
+        $A.util.removeClass(lookUpTarget, 'slds-hide');
+
+        component.set("v.SearchKeyWord", null);
+        component.set("v.listOfSearchRecords", null);
+    },
 })

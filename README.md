@@ -16,7 +16,13 @@ Please do not forget to donate something when you find this tool usefull. Thanks
          src="donate.gif" />
 </a>
 
+## Updates
 
+22 Jan 2018 - Fixed a number of issue
+ - Dropdown list of search is now showing on top of the modal, instead of only inside.
+ - You can select a search result by clicking on its row, instead of only the user name
+ - A number of minor issues
+ 
 
 ## Setup
 Use the "Deploy to Salesforce" button or follow the steps below:

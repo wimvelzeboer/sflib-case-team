@@ -40,20 +40,9 @@
 
     },
 
-    // function for clear the Record Selaction
+    // function for clear the Record Selection
     clear: function (component, event, helper) {
-
-        var pillTarget = component.find("lookup-pill");
-        var lookUpTarget = component.find("lookupField");
-
-        $A.util.addClass(pillTarget, 'slds-hide');
-        $A.util.removeClass(pillTarget, 'slds-show');
-
-        $A.util.addClass(lookUpTarget, 'slds-show');
-        $A.util.removeClass(lookUpTarget, 'slds-hide');
-
-        component.set("v.SearchKeyWord", null);
-        component.set("v.listOfSearchRecords", null);
+        helper.clear(component);
     },
 
     // This function call when the end User Select any record from the result list.
@@ -93,5 +82,12 @@
         evt.setParams({isVisible: true});
         evt.fire();
     },
+
+    onValueChange: function (component, event, helper) {
+        if (component.get("v.value") == '')
+        {
+            helper.clear(component);
+        }
+    }
 
 })
