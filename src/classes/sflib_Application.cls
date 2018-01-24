@@ -49,7 +49,7 @@ public class sflib_Application implements fflib_IApplication
 	// Configure and create the DomainFactory for this Application
 	public static final fflib_Application.DomainFactory Domain =
 			new fflib_Application.DomainFactory(
-					Application.Selector,
+					sflib_Application.Selector,
 					new Map<SObjectType, Type>
 					{
 //							Opportunity.SObjectType => Opportunities.Constructor.class

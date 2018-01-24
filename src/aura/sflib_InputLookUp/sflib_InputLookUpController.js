@@ -68,20 +68,6 @@
         $A.util.removeClass(lookUpTarget, 'slds-show');
 
     },
-    // automatically call when the component is done waiting for a response to a server request.
-    hideSpinner: function (component, event, helper) {
-        var spinner = component.find('spinner');
-        var evt = spinner.get("e.toggle");
-        evt.setParams({isVisible: false});
-        evt.fire();
-    },
-    // automatically call when the component is waiting for a response to a server request.
-    showSpinner: function (component, event, helper) {
-        var spinner = component.find('spinner');
-        var evt = spinner.get("e.toggle");
-        evt.setParams({isVisible: true});
-        evt.fire();
-    },
 
     onValueChange: function (component, event, helper) {
         if (component.get("v.value") == '')

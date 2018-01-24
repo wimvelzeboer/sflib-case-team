@@ -20,6 +20,7 @@
 -->
 <aura:component description="sflib_CaseTeamRelatedList"
                 implements="flexipage:availableForRecordHome, force:hasRecordId"
+                access="global"
                 controller="sflib_CaseTeamRelatedListController">
 
     <aura:attribute access="private" name="caseTeamData" type="object[]"/>
@@ -48,7 +49,12 @@
                         <h2>
                             <a href="#" class="slds-card__header-link slds-truncate"
                                title="Case Team">
-                                <span class="slds-text-heading_small">Case Team</span>
+                                <span class="slds-text-heading_small">
+                                    Case Team
+                                    <aura:if isTrue="{!v.caseTeamData.length>0}">
+                                        (<ui:outputText value="{!v.caseTeamData.length}"/>)
+                                    </aura:if>
+                                </span>
                             </a>
                         </h2>
                     </div>

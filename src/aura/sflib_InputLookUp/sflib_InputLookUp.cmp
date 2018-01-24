@@ -35,8 +35,6 @@
 
     <!--declare events hendlers-->
     <aura:handler name="oSelectedSObjectEvent" event="c:sflib_InputLookUpEvent" action="{!c.handleComponentEvent}"/>
-    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
-    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
     <aura:handler name="change" value="{!v.value}" action="{!c.onValueChange}" />
 
     <!-- https://www.lightningdesignsystem.com/components/lookups/ -->
@@ -65,9 +63,6 @@
         <div class="slds-lookup__menu slds" id="lookup-348">
             <div class="slds-lookup__item--label slds-text-body--small">{!v.Message}</div>
             <div class="slds-" />
-            <center>
-                <ui:spinner aura:id="spinner"/>
-            </center>
             <ul class="slds-lookup__list" role="listbox">
                 <aura:iteration items="{!v.listOfSearchRecords}" var="singleRec">
                     <c:sflib_InputLookUpResult record="{!singleRec}"/>
